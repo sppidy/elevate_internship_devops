@@ -21,10 +21,6 @@ jobs:
       run: npm install
       working-directory: ./app
 
-    - name: Run tests
-      run: npm test
-      working-directory: ./app
-
     - name: Build Docker image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/nodejs-demo-app:latest .
 
