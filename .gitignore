@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Docker
+*.tar
+*.img
+
+# VSCode settings
+.vscode/
+
+# GitHub Actions
+.github/*.log
+
+# Mac & Linux OS junk
+.DS_Store
+Thumbs.db
+
+# Optional: prevent Docker build cache from being added (if used)
+.cache/
