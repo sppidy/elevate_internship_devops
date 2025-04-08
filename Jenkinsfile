@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 docker stop $CONTAINER_NAME || true
                 docker rm $CONTAINER_NAME || true
-                docker run -d --name $CONTAINER_NAME -p 3000:3000 $IMAGE_NAME:$IMAGE_TAG
+                docker run -d --name $CONTAINER_NAME -p 10101:10101 $IMAGE_NAME:$IMAGE_TAG
                 '''
             }
         }
