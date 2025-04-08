@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 docker stop $CONTAINER_NAME || true
                 docker rm $CONTAINER_NAME || true
-                docker run -d --name $CONTAINER_NAME --network=host $IMAGE_NAME:$IMAGE_TAG
+                docker run -d --name $CONTAINER_NAME -p 10111:10101 $IMAGE_NAME:$IMAGE_TAG
                 '''
             }
         }
