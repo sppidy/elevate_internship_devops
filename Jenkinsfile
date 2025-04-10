@@ -20,13 +20,9 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Push Image to Registry') {
             steps {
-                sh '''
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
-                docker run -d --name $CONTAINER_NAME -p 10111:10101 $IMAGE_NAME:$IMAGE_TAG
-                '''
+                sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
             }
         }
     }
