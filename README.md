@@ -1,94 +1,32 @@
-# 🚀 ElevateLabs Task 3 - DevOps Deployment with Terraform
+## Task 4 - Implementing Git Workflow Best Practices
 
-This project showcases the deployment of a Dockerized Node.js application to a remote server using **Terraform** and a **custom local Docker registry**, all orchestrated via a CI/CD pipeline powered by **Jenkins**.
+### Objective
+Demonstrate efficient Git processes such as feature branching, pull requests, and structured documentation by managing your DevOps tasks within this repo.
 
----
+### Repository Details
+This repo ([elevate_internship_devops](https://github.com/sppidy/elevate_internship_devops)) contains branches for each task as provided by Elevate Labs. Instead of a main branch, we maintain:
+- `elevate-labs-task1`
+- `elevate-labs-task2`
+- `elevate-labs-task3`
+- `elevate-labs-task4`
 
-## 📆 Tech Stack
+Each branch represents a complete task-based milestone.
 
-- **Node.js** – Web application runtime
-- **Docker** – Containerization platform
-- **Jenkins** – CI/CD automation
-- **Terraform** – Infrastructure as Code (IaC)
-- **Local Docker Registry** – `ghostpxe-docker:5000`
+### Sample Pull Request
+A prime example of the workflow is [PR #1](https://github.com/sppidy/elevate_internship_devops/pull/1), which illustrates:
+- **Feature Branching:** Work on `elevate-labs-task4` is isolated from the others.
+- **Pull Request Process:** Changes are submitted via PRs to allow for review before integration.
+- **Commit Discipline:** Each commit carries clear, descriptive messages for accountability.
 
----
+### Versioning & Tags
+After completing the task on the `elevate-labs-task4` branch and merging any necessary changes, you can tag the final version (e.g., `v1.0-task4`) to mark the milestone completion.
 
-## 📁 Project Structure
-
-```
-🔹 Dockerfile
-🔹 .gitignore
-🔹 main.tf              # Terraform configuration
-🔹 README.md            # Project documentation
-🔹 Jenkinsfile          # Jenkins pipeline script
-🔹 terraform.tfstate    # Generated Terraform state file
-🔹 logs/                # Terraform logs (init, plan, apply, state, destroy)
-🔹 src/                 # Node.js source code
-```
-
----
-
-## 🚦 How It Works
-
-### ✅ Jenkins CI/CD Pipeline
-
-1. Clones the repository
-2. Builds the Docker image:
-   ```
-   ghostpxe-docker:5000/spidy-elevatelabs-task2:latest
-   ```
-3. Pushes the image to the **insecure local registry** (no authentication)
-
-### ✅ Terraform Infrastructure Deployment
-
-1. Connects to the **remote Docker daemon via SSH**
-2. Pulls the image from the **local registry**
-3. Deploys and manages the container on the remote server
-
----
-
-## 📜 Terraform Workflow
-
-Execute the following commands from your **local machine**:
-
-```bash
-terraform init
-terraform plan
-terraform apply -auto-approve
-terraform state list
-terraform destroy
-```
-
----
-
-## Terraform Logs
-
-Available in terraform/logs in the repo
-
----
-
-## ⚙️ Configuration Requirements
-
-- **Registry Access:** Ensure `ghostpxe-docker:5000` is reachable from the remote server
-- **Docker Daemon Config (********`/etc/docker/daemon.json`********)**:
-  ```json
-  {
-    "insecure-registries": ["ghostpxe-docker:5000"]
-  }
-  ```
-- **Remote Access:** Enable SSH access for Terraform to interact with Docker remotely
-
----
-
-## 🌐 Application Access
-
-Once deployed, access the application at:
-
-```
-http://your-server-ip:8181
-```
-
-Ensure port **8181** is open in your firewall or security group settings.
-
-
+### .gitignore Setup
+Your repo leverages a standard `.gitignore` to filter out:
+```gitignore
+node_modules/
+.env
+__pycache__/
+*.log
+.vscode/
+.DS_Store
