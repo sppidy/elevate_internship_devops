@@ -1,94 +1,77 @@
-# 🚀 ElevateLabs Task 3 - DevOps Deployment with Terraform
+# Elevate Labs DevOps Internship – Git Workflow Tasks
 
-This project showcases the deployment of a Dockerized Node.js application to a remote server using **Terraform** and a **custom local Docker registry**, all orchestrated via a CI/CD pipeline powered by **Jenkins**.
-
----
-
-## 📆 Tech Stack
-
-- **Node.js** – Web application runtime
-- **Docker** – Containerization platform
-- **Jenkins** – CI/CD automation
-- **Terraform** – Infrastructure as Code (IaC)
-- **Local Docker Registry** – `ghostpxe-docker:5000`
+Welcome to my Elevate Internship DevOps repository. This project showcases Git best practices and task-based branching for each deliverable provided during the internship.
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
-```
-🔹 Dockerfile
-🔹 .gitignore
-🔹 main.tf              # Terraform configuration
-🔹 README.md            # Project documentation
-🔹 Jenkinsfile          # Jenkins pipeline script
-🔹 terraform.tfstate    # Generated Terraform state file
-🔹 logs/                # Terraform logs (init, plan, apply, state, destroy)
-🔹 src/                 # Node.js source code
-```
+This repository does **not use a `main` branch**. Instead, each task is isolated in its own dedicated branch to demonstrate modular version control.
+
+| Branch    | Description                              |
+|-----------|------------------------------------------|
+| `elevate-labs-task1`  | Initial DevOps setup                     |
+| `elevate-labs-task2`  | CI/CD and automation basics              |
+| `elevate-labs-task3`  | Infrastructure-as-Code (IaC) task        |
+| `elevate-labs-task4`  | Git workflow and version control best practices ✅ |
 
 ---
 
-## 🚦 How It Works
+## 🔧 Task 4 – Git Best Practices
 
-### ✅ Jenkins CI/CD Pipeline
+### ✅ Objective
 
-1. Clones the repository
-2. Builds the Docker image:
-   ```
-   ghostpxe-docker:5000/spidy-elevatelabs-task2:latest
-   ```
-3. Pushes the image to the **insecure local registry** (no authentication)
+Implement a complete Git workflow:
+- Branching Strategy
+- Pull Requests
+- Commit Hygiene
+- Tagging
+- README Documentation
+- `.gitignore` usage
 
-### ✅ Terraform Infrastructure Deployment
+### ✅ Branch Used
+- `elevate-labs-task4`
 
-1. Connects to the **remote Docker daemon via SSH**
-2. Pulls the image from the **local registry**
-3. Deploys and manages the container on the remote server
+### ✅ Sample Pull Request
+🔗 [PR #1: Add Git best practices for task 4](https://github.com/sppidy/elevate_internship_devops/pull/1)
 
----
+This PR demonstrates:
+- Feature isolation using `elevate-labs-task4`
+- Clean commit messages
+- Pull request usage for peer review simulation
 
-## 📜 Terraform Workflow
-
-Execute the following commands from your **local machine**:
-
+### ✅ Git Tag
 ```bash
-terraform init
-terraform plan
-terraform apply -auto-approve
-terraform state list
-terraform destroy
+git tag -a v1.0-task4 -m "Completed Task 4 – Git Workflow Implementation"
+git push origin v1.0-task4
+```
+
+### ✅ .gitignore
+```gitignore
+node_modules/
+.env
+__pycache__/
+*.log
+.vscode/
+.DS_Store
 ```
 
 ---
 
-## Terraform Logs
+## 🚀 Git Workflow Summary
 
-Available in terraform/logs in the repo
-
----
-
-## ⚙️ Configuration Requirements
-
-- **Registry Access:** Ensure `ghostpxe-docker:5000` is reachable from the remote server
-- **Docker Daemon Config (********`/etc/docker/daemon.json`********)**:
-  ```json
-  {
-    "insecure-registries": ["ghostpxe-docker:5000"]
-  }
-  ```
-- **Remote Access:** Enable SSH access for Terraform to interact with Docker remotely
+1. **Each task has its own branch** (no `main`)
+2. Work is isolated per branch to avoid interference
+3. PRs simulate collaborative code review
+4. Tags mark version milestones
+5. Documentation provided in `README.md`
 
 ---
 
-## 🌐 Application Access
+## 🤝 Connect
 
-Once deployed, access the application at:
+This repository demonstrates real-world version control discipline—an essential DevOps skill. Feel free to check out each branch to explore the task-specific solutions.
 
-```
-http://your-server-ip:8181
-```
+Happy DevOpsing! 🛠️
 
-Ensure port **8181** is open in your firewall or security group settings.
-
-
+— Spidy 🕸️
