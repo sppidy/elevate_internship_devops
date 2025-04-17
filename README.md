@@ -129,6 +129,13 @@ OAUTH2_PROXY_GITHUB_USERS: sppidy
 
 ---
 
+## Screenshots
+![OuthSS](https://github.com/sppidy/elevate_internship_devops/blob/elevate-labs-task7/screenshots/oauth.png)
+![PreDashboardSS](https://github.com/sppidy/elevate_internship_devops/blob/elevate-labs-task7/screenshots/netdata_predashboard.png)
+![DashboardSS](https://github.com/sppidy/elevate_internship_devops/blob/elevate-labs-task7/screenshots/netdata_dashboard.png)
+
+---
+
 ## 🚀 Deploy
 
 ```bash
