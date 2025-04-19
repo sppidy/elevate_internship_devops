@@ -28,6 +28,8 @@ hello-java-maven/
 │       └── java/
 │           └── HelloWorld.java
 ├── pom.xml
+├── build_logs.txt
+├── .gitignore
 ├── screenshot.png
 └── README.md
 ```
@@ -127,5 +129,7 @@ The Jenkins build should end with:
 📸 Screenshot:
 
 ![Jenkins Build Success](https://github.com/sppidy/elevate_internship_devops/blob/elevate-labs-task8/screenshot.png)
+
+Full Build logs available [Logs](https://github.com/sppidy/elevate_internship_devops/blob/elevate-labs-task8/build_logs.txt)
 
 ---
