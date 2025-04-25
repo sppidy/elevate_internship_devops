@@ -19,7 +19,7 @@ Welcome! I'm a computer science enthusiast who wanted a streamlined, secure Kube
 
 - **Control Workstation**: Ubuntu 24.04
 - **Nodes**:
-    - **Master**: `ghostpxe-k8` (Ubuntu 24.04)
+    - **Master**: `master` (Ubuntu 24.04)
     - **Worker1**: `debian` (Debian 12 Bookworm)
     - **Worker2**: `debian1` (Debian 12 Bookworm)
 - **Networking**: All nodes connected via **Tailscale** (`tailscale0` interface)
@@ -205,67 +205,7 @@ Username: `admin`.
 
 ## GitOps Application Manifests
 
-### Deployment (`deployment.yaml`)
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.21.6
-        ports:
-        - containerPort: 80
-```
-
-### Service (`service.yaml`)
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-spec:
-  selector:
-    app: nginx
-  ports:
-  - port: 80
-    targetPort: 80
-  type: ClusterIP
-```
-
-### ArgoCD Application (`argocd-app.yaml`)
-
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: nginx-app
-  namespace: argocd
-spec:
-  source:
-    repoURL: https://github.com/yourusername/gitops-argo
-    targetRevision: main
-    path: manifests
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-```
+Check `manifests` folder in this repo
 
 Deploy it:
 
@@ -288,12 +228,10 @@ ArgoCD picks up the change and self-heals my cluster to the desired state.
 - **GitHub Repo:** https://github.com/sppidy/elevate_internship_devops/tree/final_project
 - **Directories:**
     - `/manifests` – Kubernetes YAMLs
-    - `/ansible` – Ansible playbooks
 
-## Screenshots & Video
+## Screenshots
 
-- **Screenshot:** `images/argocd-sync.png` (Shows sync status in ArgoCD)
-- **Vid**`4` (Walkthrough of GitOps workflow)**eo:** `videos/gitops-flow.mp`
+- **Screenshot:** Check Scrrenshots Folder in Repo
 
 ## Appendix
 
